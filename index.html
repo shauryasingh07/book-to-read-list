@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+</head>
+<body>
+    <div class="container">
+        <!-- <header>
+            <h1>📚 Book List</h1>
+        </header> -->
+        <div id="alert"></div>
+        <div class="book-form">
+            <input type="text" id="title" placeholder="Book Title" autocomplete="off">
+            <input type="text" id="author" placeholder="Author" autocomplete="off">
+            <input type="text" id="isbn" placeholder="ISBN" autocomplete="off">
+            <button id="addBtn">Add Book</button>
+        </div>
+        <section class="book-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="background-color: rgb(114, 172, 207);">Book Title</th>
+                        <th style="background-color: rgb(185, 133, 225);">Author</th>
+                        <th style="background-color: rgb(132, 219, 130);">ISBN</th>
+                        <th style="background-color: rgb(216, 128, 166);" id="action">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="bookTableBody"></tbody>
+            </table>
+        </section>    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
