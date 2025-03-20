@@ -1,10 +1,17 @@
+// tasks--
+// 1. When adding empty field give alert
+// 2. If field isn't empty addd all the three content in there respective rows
+// 3. cgit breate tr in which add td and in td the content will come
+// 4. Create td for delete class and when clicking on that delete the row gets deleted
+
+
+
 document.addEventListener("DOMContentLoaded", loadBooks);
 
 let addBtn = document.getElementById("addBtn");
 let bookTableBody = document.getElementById("bookTableBody");
 let alertBox = document.getElementById("alert");
 
-// Add book on button click
 addBtn.addEventListener("click", function () {
     let title = document.getElementById("title").value.trim();
     let author = document.getElementById("author").value.trim();
@@ -25,7 +32,6 @@ addBtn.addEventListener("click", function () {
     document.getElementById("isbn").value = "";
 });
 
-// Function to add book to table
 function addBookToTable(book) {
     let row = document.createElement("tr");
     row.innerHTML = `
@@ -42,29 +48,9 @@ function addBookToTable(book) {
         row.remove();
         showAlert("Book removed!", "error");
     });
+
 }
 
-// Save books to localStorage
-function saveBookToLocalStorage(book) {
-    let books = JSON.parse(localStorage.getItem("books")) || [];
-    books.push(book);
-    localStorage.setItem("books", JSON.stringify(books));
-}
-
-// Load books from localStorage on page load
-function loadBooks() {
-    let books = JSON.parse(localStorage.getItem("books")) || [];
-    books.forEach(book => addBookToTable(book));
-}
-
-// Remove book from localStorage
-function removeBook(bookToRemove) {
-    let books = JSON.parse(localStorage.getItem("books")) || [];
-    books = books.filter(book => book.isbn !== bookToRemove.isbn);
-    localStorage.setItem("books", JSON.stringify(books));
-}
-
-// Function to show alerts
 function showAlert(message, type) {
     alertBox.innerText = message;
     alertBox.className = type;
@@ -75,4 +61,23 @@ function showAlert(message, type) {
         alertBox.style.visibility = "hidden";
         alertBox.style.opacity = 0
     }, 2000);
+}
+
+
+
+function saveBookToLocalStorage(book) {
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+    books.push(book);
+    localStorage.setItem("books", JSON.stringify(books));
+}
+
+function loadBooks() {
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+    books.forEach(book => addBookToTable(book));
+}
+
+function removeBook(bookToRemove) {
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+    books = books.filter(book => book.isbn !== bookToRemove.isbn);
+    localStorage.setItem("books", JSON.stringify(books));
 }

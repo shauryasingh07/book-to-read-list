@@ -73,7 +73,7 @@ body {
 .book-form button {
     padding: 8px 14px;
     border: 2px solid #000;
-    background: #7564f6;
+    background: #f6ea64;
     color: #000;
     border-radius: 20px;
     cursor: pointer;
@@ -137,3 +137,4 @@ td {
 .delete:hover {
     background: darkred;
 }
+
